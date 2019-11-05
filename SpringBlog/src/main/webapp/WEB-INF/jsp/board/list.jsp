@@ -6,10 +6,10 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>Spring Blog</title>
 </head>
 <body>
-1122
+테스트
 <%
 List<Map<String,String>> list = (List<Map<String,String>>)request.getAttribute("list");
 
