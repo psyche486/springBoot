@@ -4,7 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
-//Mybatis
+
+//Mapper interface 생성
 @Mapper
 public interface BoardMapper {
 
