@@ -13,8 +13,8 @@ import com.jinseok.blog.mvc.mapper.BoardMapper;
 //import com.jinseok.blog.mvc.mapper.BoardMapper;
 
 @Service
-public class BoardService {
-
+public class BoardService {                  
+                                                                  
 	@Autowired BoardMapper boardMapper; 
 	
 	public List<Map<String, String>> getList(Map<String, String> param) {

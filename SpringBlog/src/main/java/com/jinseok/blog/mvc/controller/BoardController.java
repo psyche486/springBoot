@@ -16,6 +16,9 @@ public class BoardController {
 
 	@Autowired BoardService boardService;
 	
+	/*
+	 * 게시판을 
+	 */
 	@RequestMapping("/board/list")
 	public ModelAndView getList(){
 		ModelAndView mav = new ModelAndView();
