@@ -27,6 +27,7 @@ public class BoardController {
 		List<Map<String,String>> list = boardService.getList(param);
 		
 		mav.addObject("list",list);
+		mav.addObject("jinseok","babo");
 		return mav;
 	}
 }
