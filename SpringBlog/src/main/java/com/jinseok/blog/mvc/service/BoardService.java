@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jinseok.blog.mvc.mapper.BoardMapper;
+import com.jinseok.blog.mvc.model.BoardVO;
 
 //import com.jinseok.blog.mvc.mapper.BoardMapper;
 
@@ -31,7 +32,15 @@ public class BoardService {
 //		
 		return list;
 	}
+
+	public void insert(BoardVO boardVO) {
+		// TODO Auto-generated method stub
+		boardMapper.insertBoard(boardVO);
+	}
 	
-	
+	public void delete(BoardVO boardVO) {
+		// TODO Auto-generated method stub
+		boardMapper.deleteBoard(boardVO);
+	}
 
 }

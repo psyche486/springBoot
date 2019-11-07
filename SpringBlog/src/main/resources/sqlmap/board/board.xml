@@ -12,4 +12,25 @@
         FROM
             BOARD
     </select>
+    
+	<insert id="insertBoard" parameterType="com.jinseok.blog.mvc.model.BoardVO">
+	INSERT INTO BOARD (
+		BBS_NO, 
+		BBS_TITLE, 
+		BBS_CONTENT, 
+		BBS_WRITER,
+		BBS_READ_COUNT
+	) 
+	VALUES(
+		#{bbs_no}, 
+		#{bbs_title}, 
+		#{bbs_content}, 
+		#{bbs_writer},
+		#{bbs_read_count}
+	);
+    </insert>
+    
+    <delete id="deleteBoard" parameterType="com.jinseok.blog.mvc.model.BoardVO">
+		DELETE FROM BOARD WHERE bbs_no = #{bbs_no}
+    </delete>
 </mapper>

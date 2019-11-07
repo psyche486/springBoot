@@ -1,11 +1,14 @@
 package com.jinseok.blog.mvc.model;
 
+import java.util.Date;
+
 public class BoardVO {
 
 	private int bbs_no;
 	private String bbs_title;
     private String bbs_content;
     private int bbs_read_count;
+    private Date bbs_regdate;
     private String bbs_writer;
 	public int getBbs_no() {
 		return bbs_no;
@@ -30,6 +33,13 @@ public class BoardVO {
 	}
 	public void setBbs_read_count(int bbs_read_count) {
 		this.bbs_read_count = bbs_read_count;
+	}
+	
+	public Date getBbs_regdate() {
+		return bbs_regdate;
+	}
+	public void setBbs_regdate(Date bbs_regdate) {
+		this.bbs_regdate = bbs_regdate;
 	}
 	public String getBbs_writer() {
 		return bbs_writer;
