@@ -8,7 +8,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,8 +34,12 @@ public class BoardController {
 		
 		List<Map<String,String>> list = boardService.getList(param);
 		
+		System.out.println("리스트 개수="+ list.size());
+		String count = Integer.toString(list.size());
+		System.out.println("리스트 개수="+ count);
+		
 		mav.addObject("list",list);
-		mav.addObject("jinseok","babo");
+		mav.addObject("count",count);
 		return mav;
 	}
 	
@@ -58,14 +61,12 @@ public class BoardController {
 	 * @return ModelAndView
 	 */
 	@RequestMapping("/board/insert")
-	public ModelAndView insert(HttpServletRequest request) throws UnsupportedEncodingException{
-		request.setCharacterEncoding("UTF-8");
+	public ModelAndView insert(HttpServletRequest request){
 		
 		BoardVO boardVO = new BoardVO();
 		boardVO.setBbs_no(Integer.parseInt(request.getParameter("bbs_no")));
 		boardVO.setBbs_title(request.getParameter("bbs_title"));
-		boardVO.setBbs_content(request.getParameter("bbs_countent"));
-		boardVO.setBbs_read_count(Integer.parseInt(request.getParameter("bbs_read_count")));
+		boardVO.setBbs_content(request.getParameter("bbs_content"));
 		boardVO.setBbs_writer(request.getParameter("bbs_writer"));
  
 		boardService.insert(boardVO);
@@ -88,7 +89,7 @@ public class BoardController {
 	}
 	
 	/**
-	 * Board 리스트 추가
+	 * Board 리스트 삭제
 	 * @param 
 	 * @return ModelAndView
 	 */
@@ -105,4 +106,46 @@ public class BoardController {
 		
 		return mav;
 	}
+	
+	/**
+	 * Board 리스트 상세보기
+	 * @param 
+	 * @return ModelAndView
+	 */
+	@RequestMapping("/board/detail")
+	public ModelAndView detail(HttpServletRequest request){		
+		int bbs_num = Integer.parseInt(request.getParameter("bbs_no"));
+		
+		ModelAndView mav = new ModelAndView();
+		Map<String,String> result = boardService.detail(bbs_num);
+		boardService.increaseCount(bbs_num);
+		
+		
+		mav.addObject("result",result);
+		mav.setViewName("/board/detailBoard");
+		
+		return mav;
+	}
+	
+	/**
+	 * Board 리스트 추가
+	 * @param 
+	 * @return ModelAndView
+	 */
+	@RequestMapping("/board/update")
+	public ModelAndView update(HttpServletRequest request){
+		System.out.println("update");
+		System.out.println(Integer.parseInt(request.getParameter("bbs_no")));
+		BoardVO boardVO = new BoardVO();
+		boardVO.setBbs_no(Integer.parseInt(request.getParameter("bbs_no")));
+		boardVO.setBbs_title(request.getParameter("bbs_title"));
+		boardVO.setBbs_content(request.getParameter("bbs_content"));
+		boardVO.setBbs_writer(request.getParameter("bbs_writer"));
+ 
+		boardService.update(boardVO);
+		
+		ModelAndView mav = new ModelAndView("redirect:/board/boardList");
+		
+		return mav;
+	}	
 }

@@ -43,4 +43,20 @@ public class BoardService {
 		boardMapper.deleteBoard(boardVO);
 	}
 
+	public Map<String, String> detail(int bbs_num) {
+		Map<String, String> list = boardMapper.detail(bbs_num);
+		
+		return list;		
+	}
+	
+	public void update(BoardVO boardVO) {
+		// TODO Auto-generated method stub
+		boardMapper.updateBoard(boardVO);
+	}
+
+	public void increaseCount(int bbs_num) {
+		// TODO Auto-generated method stub
+		boardMapper.increaseCount(bbs_num);
+	}
+
 }

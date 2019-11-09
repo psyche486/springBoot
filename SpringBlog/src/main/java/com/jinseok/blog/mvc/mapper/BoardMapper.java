@@ -17,4 +17,9 @@ public interface BoardMapper {
 
 	public void deleteBoard(BoardVO boardVO);
 
+	public Map<String, String> detail(int bbs_num);
+	
+	public void updateBoard(BoardVO boardVO);
+
+	public void increaseCount(int bbs_num);
 }

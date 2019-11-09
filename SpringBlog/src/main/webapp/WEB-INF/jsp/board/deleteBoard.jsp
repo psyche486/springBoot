@@ -8,7 +8,7 @@
 	<title>글 추가 테스트</title>
 </head>
 <body>
-Board Delete Test 
+Board Delete Test Page
 	<form name ="deleteBoard" id="deleteBoard" method="post" action="/board/delete">
 		<table border="1" style="width:100px">
 			<thead>

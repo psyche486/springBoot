@@ -8,29 +8,34 @@
 	<title>글 추가 테스트</title>
 </head>
 <body>
-Board Insert Test 
+Board Insert Test Page
 	<form name ="insertBoard" id="insertBoard" method="post" action="/board/insert">
 		<table border="1" style="width:500px">
 			<thead>
-			<tr>
-				<th>No.</th>
-				<th>Title</th>
-				<th>Content</th>
-				<th>Writer</th>
-				<th>Count</th>
-			</tr>
 			</thead>
 			<tbody>
+		<tbody>
+			<tr>
+				<th>No.</th>
+				<td><input type="text" id="bbs_no" name="bbs_no"></td>
+			</tr>
+			<tr>
+				<th>Title</th>
+				<td><input type="text" id="bbs_title" name="bbs_title"></td>
+			</tr>
 				<tr>
-					<td><input type="text" id="bbs_no" name="bbs_no"></td>
-					<td><input type="text" id="bbs_title" name="bbs_title"/></td>
-					<td><input type="text" id="bbs_content" name="bbs_content"/></td>				
-					<td><input type="text" id="bbs_writer" name="bbs_writer"/></td>
-					<td><input type="text" id="bbs_read_count" name="bbs_read_count"/></td>
-				</tr>
+				<th>Content</th>
+				<td><input type="text" id="bbs_content" name="bbs_content"></td>
+			</tr>
+			</tr>
+				<tr>
+				<th>Writer</th>
+				<td><input type="text" id="bbs_writer" name="bbs_writer"></td>
+			</tr>			
+		</tbody>
 			</tbody>
 		</table>
-			<input type="submit" name="추가하기" value="추가하기" id ="insert"/>
+			<input type="submit" id="btnInsert" name="btnInsert" value="저장(INSERT)">
 	</form>
 </body>
 </html>

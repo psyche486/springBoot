@@ -1,26 +1,23 @@
 <%@page import="java.util.Map"%>
 <%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Spring Blog</title>
 </head>
 <script>
 </script>
 
 <body>
-Board List  
+Board List Page 
 <%
 List<Map<String,Object>> list = (List<Map<String,Object>>)request.getAttribute("list");
+String count = request.getParameter("count");
 %>
 
-<div>
-	<button id="boardListAdd" onclick="location='/board/insertBoard'">±Û¾²±â</button>
-	<button id="boardListDelete" onclick="location='/board/deleteBoard'">±Û»èÁ¦</button>
-</div>
 <table border="1" style="width:500px">
 	<thead>
 	<tr>
@@ -37,8 +34,8 @@ List<Map<String,Object>> list = (List<Map<String,Object>>)request.getAttribute("
 				Map<String,Object> map = list.get(i);
 		%>
 		<tr>
-			<td><%=map.get("bbs_no") %></td>		
-			<td><%=map.get("bbs_title") %></td>	
+			<td><%= map.get("bbs_no")%></td>
+			<td><a href="/board/detail?bbs_no=<%= map.get("bbs_no")%>"><%=map.get("bbs_title") %></td>	
 			<td><%=map.get("bbs_content") %></td>	
 			<td><%=map.get("bbs_writer") %></td>		
 			<td><%=map.get("bbs_read_count") %></td>		
@@ -48,5 +45,8 @@ List<Map<String,Object>> list = (List<Map<String,Object>>)request.getAttribute("
 		%>
 	</tbody>
 </table>
+<div>
+	<button id="boardListInsert" onclick="location='/board/insertBoard'">ìƒˆê¸€ì¶”ê°€(INSERT)</button>
+</div>
 </body>
 </html>
